@@ -20,7 +20,7 @@ public class InvoiceServiceTest {
 	public void givenLessDistanceAndTime_ShouldReturnMinFare() {
 		InvoiceService invoiceService = new InvoiceService();
 		double distance = 0.2;
-		int time = 2;
+		int time = 1;
 		double totalFare = invoiceService.CalculateFare(distance, time);
 		Assert.assertEquals(5.0, totalFare, 0);
 	}
