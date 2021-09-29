@@ -51,4 +51,15 @@ public class InvoiceServiceTest {
 		InvoiceSummary expectedInvoices = new InvoiceSummary(2, 30);
 		Assert.assertEquals(expectedInvoices.getInvoiceSummary(), invoiceSummary.getInvoiceSummary());
 	}
+
+	@Test
+	public void givenMultipleRides_WhenPremium_ShouldReturnInvoiceSummary() {
+		InvoiceService invoiceService = new InvoiceService();
+		String type = "Premium";
+		Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1), };
+		InvoiceSummary invoiceSummary = invoiceService.calculateTotalFare(rides, type);
+		InvoiceSummary expectedInvoices = new InvoiceSummary(2, 60.0);
+		Assert.assertEquals(expectedInvoices.getInvoiceSummary(), invoiceSummary.getInvoiceSummary());
+	}
+
 }
